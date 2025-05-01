@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNGA - The World’s Stage</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* General Styles */
+      body {
+        margin: auto;
+        font-family: "Montserrat", sans-serif;
+        background: url("./images/UNGA.png") no-repeat center top, #490d99;
+        background-size: cover;
+        background-attachment: scroll;
+        color: #333;
+      }
+
+      header {
+        background-color: rgba(73, 13, 153, 0.8); /* Match the background color with the logo */
+        color: white;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .menu-icon {
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+      }
+
+      .menu-icon i {
+        margin-right: 8px;
+      }
+
+      .hero-text {
+        text-align: center;
+        color: white;
+        margin-top: 35px;
+      }
+
+      .hero-text h2 {
+        font-size: 36px;
+        margin: 0;
+      }
+
+      .hero-text p {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px 20px;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .card {
+        border-radius: 15px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+      }
+
+      .card h3 {
+        color: #2c1c75;
+        margin-bottom: 15px;
+      }
+
+      .card p,
+      .card ul {
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .card ul {
+        padding-left: 20px;
+        text-align: left;
+      }
+
+      .buttons {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .buttons a {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 24px;
+        background-color: #2c1c75;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .buttons a:hover {
+        background-color: #44318d;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          background: url("./images/UNGA.png") no-repeat center top, #490d99;
+          background-size: contain;
+          background-attachment: scroll;
+        }
+
+        .hero-text {
+          margin-top: 20px;
+        }
+
+        .hero-text h2 {
+          font-size: 28px;
+        }
+
+        .hero-text p {
+          font-size: 16px;
+        }
+
+        .card {
+          width: 80%; /* Make cards take up most of the screen width */
+        }
+
+        .buttons a {
+          width: 90%; /* Make buttons full-width */
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <a href="index.html" title="Go to Home Page">
+        <img src="images/LogBGRemoved.png" alt="DIPLOMIND Logo" style="height: 40px;" />
+      </a>
+      <a
+        href="index.html"
+        class="menu-icon"
+        title="Go to Home Page"
+        style="text-decoration: none; margin-top: -10px;"
+      >
+        <i class="fas fa-home" style="font-size: 14px; color: white"></i>
+      </a>
+    </header>
+
+    <!-- Hero Text Section -->
+    <div class="hero-text">
+      <h2>The World’s Stage — Where Every Nation Has a Voice.</h2>
+      <p>The central meeting ground for global cooperation.</p>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+      <div class="card">
+        <h3>What is the UNGA?</h3>
+        <p>
+          The United Nations General Assembly (UNGA) is the central meeting
+          ground and the policy-making organ of the United Nations. It’s where
+          the world talks, debates, and decides on major global issues—
+          together.
+        </p>
+        <p>In this committee, nations work on:</p>
+        <ul>
+          <li>Climate change</li>
+          <li>International peace and security</li>
+          <li>Economic development</li>
+          <li>Human rights and global justice</li>
+        </ul>
+        <p>
+          The UNGA represents unity through diversity, giving every country an
+          equal voice with each of the 193 member states having an equal vote.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>What do YOU do in MUN as a UNGA delegate?</h3>
+        <p>
+          You speak for your nation on the biggest global challenges.
+        </p>
+        <p>Your job?</p>
+        <ul>
+          <li>Present national interests with diplomacy</li>
+          <li>Negotiate common ground</li>
+          <li>Debate with respect, knowledge, and leadership</li>
+          <li>Propose resolutions that reflect global cooperation</li>
+        </ul>
+        <p>
+          UNGA is about speaking up while listening, leading, and shaping our
+          shared future.
+        </p>
+      </div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="buttons">
+      <a href="#">See UNGA Rules of Procedure</a>
+      <a href="#">Check Sample Research and Speeches</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Web App</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <style>
+
+      
+        /* General Body Styles */
+        body {
+          font-family: "Montserrat", sans-serif; /* Set Montserrat as the default font */
+          margin: 0;
+          padding: 0;
+          background: #4c2c5c;
+          background: radial-gradient(
+            circle,
+            rgba(76, 44, 92, 1) 0%,
+            rgba(119, 0, 255, 1) 64%,
+            rgba(113, 0, 243, 1) 29%,
+            rgba(0, 0, 0, 1) 100%,
+            rgba(29, 33, 51, 1) 100%
+          ); /* Updated radial gradient */
+          background-size: cover; /* Ensure the gradient covers the entire viewport */
+          background-position: center; /* Center the background */
+          background-attachment: scroll; /* Fix background scrolling issue on phones */
+          color: #ffffff; /* Default text color */
+        }
+      
+        body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: none; /* Remove the previous solid background color */
+          z-index: -1;
+        }
+      
+
+      /* Navbar Styles */
+      .nav-item {
+        font-size: small;
+      }
+
+      /* Responsive Design for Mobile */
+      @media (max-width: 768px) {
+        #Home .row {
+          flex-direction: column-reverse; /* Stack text above the image */
+        }
+        #Home .col-md-4 {
+          display: flex;
+          justify-content: flex-end; /* Align image to the right */
+        }
+        #Home h1 {
+          font-size: 2rem; /* Adjust font size for smaller screens */
+        }
+        .scrolling-text-container {
+          margin-top: -20px; /* Adjust scrolling text position */
+        }
+        img.img-fluid {
+          max-height: 500px; /* Reduce image size for mobile */
+        }
+        body {
+          background-attachment: scroll; /* Ensure smooth scrolling on mobile */
+        }
+      }
+
+      /* 3D Card Styles */
+      .card-3d {
+        background-color: #f8f9fa;
+        border-radius: 50%; /* Ensures the shape is circular */
+        margin: auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px 20px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        width: 150px; /* Fixed width for circular shape */
+        height: 150px; /* Fixed height for circular shape */
+      }
+
+      .card-3d:hover {
+        transform: translateY(-5px) scale(1.03);
+      }
+
+      .card-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #212529;
+      }
+
+      a.text-decoration-none {
+        text-decoration: none !important;
+      }
+
+      /* Scrolling Text Styles */
+      .scrolling-text-container {
+        width: 100%; /* Full width of the container */
+        overflow: hidden; /* Hide overflowing text */
+        border-radius: 15px;
+        padding: 20px 0;
+        margin-bottom: 60px;
+        position: relative;
+      }
+      
+      .scrolling-text {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll-infinite 10s linear infinite; /* Faster scrolling animation */
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ffffff;
+      }
+      
+      @keyframes scroll-infinite {
+        0% {
+          transform: translateX(5%); /* Start at the initial position */
+        }
+        100% {
+          transform: translateX(-100%); /* Move fully to the left */
+        }
+      }
+
+      /* Section Scroll Margin */
+      #about-us,
+      #committee,
+      #Home {
+        scroll-margin-top: 150px;
+      }
+
+      #about-us {
+        scroll-margin-top: 300px;
+      }
+
+      /* Social Media Icon Styles */
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .social-icon:hover {
+        transform: scale(1.1);
+      }
+
+      /* Navbar Link Styles */
+      .navbar-nav .nav-link {
+        color: #fff !important;
+        transition: color 0.3s;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #ffd700 !important;
+      }
+
+      /* Carousel Styles */
+      .carousel-item {
+        font-size: 20px;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(1);
+      }
+
+      .about-container {
+        background: linear-gradient(135deg, #3b3b59, #8A2BE2);
+        border-radius: 20px;
+        padding: 40px;
+        width: 90%;
+        max-width: 800px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        margin: auto;
+      }
+      
+      .about-container h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        color: white;
+      }
+      
+      .about-container p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: white;
+      }
+      
+      .about-container ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .about-container li {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: white;
+      }
+      
+      .about-container li b {
+        color: #ffffff;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark sticky-top"
+      style="
+        background-color: #490d99;
+        font-family: 'Montserrat', sans-serif;
+        padding: 0;
+        margin: 0;
+        height: auto;
+      "
+    >
+      <div class="container-fluid px-3">
+        <a class="navbar-brand" href="#Home">
+          <img
+            src="images/LogBGRemoved.png"
+            alt="Logo"
+            class="img-fluid"
+            style="max-height: 40px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#Home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-us">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#committee">Committee</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-us">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div
+      id="Home"
+      class="container mb-5 d-flex align-items-center justify-content-center"
+      data-aos="fade-down"
+      style="min-height: 100vh; margin-top: -10px"
+    >
+      <div class="row align-items-center text-center margin-top: -20px">
+        <div
+          class="col-md-8 col-12 text-white d-flex flex-column align-items-center"
+        >
+          <h1 class="display-4 fw-bold">Define.</h1>
+          <h1 class="display-4 fw-bold">Confide.</h1>
+          <h1 class="display-4 fw-bold">Diplomind.</h1>
+          <h6>Crafting Confident Speakers Through the Language of Diplomacy</h6>
+          <!-- Opaque Button -->
+          <a
+            href="./images/MunGuide.pdf"
+            class="btn btn-light mt-4"
+            style="opacity: 0.8; font-weight: bold"
+            target="_blank"
+          >
+            Explore Resources
+          </a>
+        </div>
+        <div class="col-md-4 col-12">
+          <img
+            src="images/LogoBoy.png"
+            alt="Diplomind"
+            class="img-fluid"
+            style="max-height: 1500px; margin-left: -260px"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Scrolling Text -->
+<div
+  class="scrolling-text-container text-center py-3"
+  data-aos="fade-up"
+  style="margin-top: -50px"
+>
+  <div class="scrolling-text">
+    Confidence • Diplomacy • Public Speaking • Research • MUN Mastery •
+    Leadership • Teamwork • Growth • Networking • Global Awareness •
+    Communication • Advocacy • Negotiation • Critical Thinking • Cultural Exchange •
+    Problem Solving • Empathy • Persuasion • Debate • Collaboration •
+  </div>
+</div>
+
+    <!-- About Us Section -->
+    <!-- About Us Section -->
+<div id="about-us" class="container mb-5" data-aos="fade-up">
+  <div class="about-container">
+    <h1>ABOUT US</h1>
+    <p>Diplomind is the ultimate glow-up spot for unlocking confidence, MUN skills, public speaking power, leadership energy, and a global mindset — all designed to be smart, easy, and genuinely YOU.</p>
+    <ul>
+      <li><b>MUN Made Easy:</b> Simplified rules, formats, and diplomacy essentials.</li>
+      <li><b>Ready-to-Go Speeches:</b> Templates, scripts, and tips to own the room.</li>
+      <li><b>Elite Research Tools:</b> Curated links and strategies to level up your prep.</li>
+      <li><b>Stage Confidence Hacks:</b> Quick fixes to crush self-doubt and anxiety.</li>
+      <li><b>Speech & Debate Skills:</b> Quick wins to speak like a seasoned pro.</li>
+      <li><b>Mindset Boosters:</b> Real strategies for overcoming self-doubt and social anxiety.</li>
+      <li><b>Debate Games & Exercises:</b> Fun, engaging ways to sharpen your skills.</li>
+      <li><b>Leadership Launchpad:</b> Real-world projects to inspire lasting impact.</li>
+      <li><b>Exclusive Diplomind Resources:</b> Passports, challenges, badges — collect, flex, and grow.</li>
+      <li><b>Community Love:</b> Share wins, struggles, hacks, and real talk with people who get you.</li>
+    </ul>
+    <p>One platform. Endless possibilities. Ready to flex that brainpower? Let's get you Diplominded.</p>
+  </div>
+</div>
+
+    <!-- Committees Section -->
+    <div id="committee" class="container mb-5">
+      <h1 class="text-white text-center">Committees</h1>
+      <div class="row g-4 justify-content-center mt-4" data-aos="fade-up">
+        <div class="col-md-3 col-6">
+          <a href="page1.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/1.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page2.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/2.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page3.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/3.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page4.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/4.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page5.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/5.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page6.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/6.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page7.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/7.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+        <div class="col-md-3 col-6">
+          <a href="page8.html" class="text-decoration-none">
+            <div
+              class="card-3d"
+              style="
+                background-image: url('images/8.jpg');
+                background-size: cover;
+                background-position: center;
+              "
+            ></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div id="contact-us" class="container mb-5" data-aos="fade-up">
+      <div class="bg-white p-4 rounded-4 shadow">
+        <h2 class="mb-4 text-center text-md-start" style="color: #490d99">
+          Contact Us
+        </h2>
+        <p style="color: #490d99; font-size: 1rem">
+          You can reach us via email at
+          <strong>contact@diplomind.org</strong> or follow us on our social
+          media platforms for updates and more.
+        </p>
+        <div
+          class="d-flex justify-content-center justify-content-md-start gap-3"
+        >
+          <a href="#" class="text-primary fs-3"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" class="text-danger fs-3"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="text-info fs-3"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
